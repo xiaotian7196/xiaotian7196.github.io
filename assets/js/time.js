@@ -50,7 +50,7 @@ function refreshTime(){
                 + currentTime[2] + '时' + currentTime[3] + '分' + currentTime[4]
                 + '秒';
         document.getElementById("htmer_time").innerHTML = currentTimeHtml;
-    }   
+    }    setInterval(setTime, 1000);
     function setTime() {
         var create_time = Math.round(new Date(Date.UTC(2024, 01, 21, 0, 0, 0)).getTime() / 1000);
         var timestamp = Math.round((new Date().getTime() + 8 * 60 * 60 * 1000) / 1000);
