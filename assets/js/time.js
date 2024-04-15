@@ -13,7 +13,10 @@ function refreshTime(){
                      }
                      setInterval(refreshTime,1000);
 
- function secondToDate(second) {
+
+
+
+    function secondToDate(second) {
         if (!second) {
             return 0;
         }
@@ -39,7 +42,7 @@ function refreshTime(){
         }
         return time;
     }
- function setTime() {
+    function setTime() {
         var create_time = Math.round(new Date(Date.UTC(2024, 01, 21, 0, 0, 0)).getTime() / 1000);
         var timestamp = Math.round((new Date().getTime() + 8 * 60 * 60 * 1000) / 1000);
         currentTime = secondToDate((timestamp - create_time));
@@ -47,4 +50,17 @@ function refreshTime(){
                 + currentTime[2] + '时' + currentTime[3] + '分' + currentTime[4]
                 + '秒';
         document.getElementById("htmer_time").innerHTML = currentTimeHtml;
-    }    setInterval(setTime, 1000);
+    }   
+    function setTime() {
+        var create_time = Math.round(new Date(Date.UTC(2024, 01, 21, 0, 0, 0)).getTime() / 1000);
+        var timestamp = Math.round((new Date().getTime() + 8 * 60 * 60 * 1000) / 1000);
+        currentTime = secondToDate((timestamp - create_time));
+        currentTimeHtmlENG = currentTime[0] + ' YEAR ' + currentTime[1] + ' DAY '
+                + currentTime[2] + ' HOUR ' + currentTime[3] + ' MIN ' + currentTime[4]
+                + ' SEC ';
+        document.getElementById("htmer_time_ENG").innerHTML = currentTimeHtmlENG;
+    }    
+    
+    
+    
+    setInterval(setTime, 1000);
