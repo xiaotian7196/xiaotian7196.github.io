@@ -1,10 +1,13 @@
+/*
+    * @Author: Xiaotian7196
+    * @Date: 2024-06-6 9:39:15
+*/
 var datetime = new Date();
 var datelocal = new Date().getTimezoneOffset();
 var timezone = -datelocal;
 console.log(datetime)
 document.getElementById("time").textContent=datetime;
 document.getElementById("timezone").textContent=timezone/60;
-
 function refreshTime(){
     const timeDisplay = document.getElementById("time");
     const dateString = new Date().toLocaleString();
@@ -12,10 +15,6 @@ function refreshTime(){
     timeDisplay.textContent = formattedString;
                      }
                      setInterval(refreshTime,1000);
-
-
-
-
     function secondToDate(second) {
         if (!second) {
             return 0;
@@ -46,12 +45,21 @@ function refreshTime(){
         var create_time = Math.round(new Date(Date.UTC(2024, 01, 21, 0, 0, 0)).getTime() / 1000);
         var timestamp = Math.round((new Date().getTime() + 8 * 60 * 60 * 1000) / 1000);
         currentTime = secondToDate((timestamp - create_time));
-        currentTimeHtml = currentTime[0] + '年' + currentTime[1] + '天'
+        currentTimeHtmlCN = currentTime[0] + '年' + currentTime[1] + '天'
                 + currentTime[2] + '时' + currentTime[3] + '分' + currentTime[4]
                 + '秒';
-        document.getElementById("htmer_time").innerHTML = currentTimeHtml;
+        document.getElementById("htmer_time").innerHTML = currentTimeHtmlCN;
+
     }
-    
-    
-    
     setInterval(setTime, 1000);
+    
+    function setTimeEN() {
+        var create_time = Math.round(new Date(Date.UTC(2024, 01, 21, 0, 0, 0)).getTime() / 1000);
+        var timestamp = Math.round((new Date().getTime() + 8 * 60 * 60 * 1000) / 1000);
+        currentTime = secondToDate((timestamp - create_time));
+        currentTimeHtmlENG = currentTime[0] + ' YEAR ' + currentTime[1] + ' DAY '
+                + currentTime[2] + ' HOUR ' + currentTime[3] + ' MIN ' + currentTime[4]
+                + ' SEC ';
+        document.getElementById("htmer_time_ENG").innerHTML = currentTimeHtmlENG;
+    }    
+    setInterval(setTimeEN, 1000);
