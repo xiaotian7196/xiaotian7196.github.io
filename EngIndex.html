@@ -45,15 +45,28 @@
 			<h4><a href="https://twitter.com/xiaotian7196" target="_blank" rel="noopener noreferrer">X(twitter)</a></h4>
 			<h4><a href="https://space.bilibili.com/354565010?" target="_blank" rel="noopener noreferrer">Bilibili</a></h4>
 			<h4><a href="https://steamcommunity.com/id/XiaoTian7196/" target="_blank" rel="noopener noreferrer">STEAM</a></h4>
+			<h4><a href="https://github.com/dsrkafuu/sakana-widget" target="_blank" rel="noopener noreferrer">sakana-widget's github </a>（author：<a href="https://github.com/dsrkafuu" target="_blank" rel="noopener noreferrer">DSRKafuU</a>）</h4>
 			<h4>Thankou visit my website!</h4>
-			<h4>2024.5.31 friday 金曜日</h4>
+			<h4>2024.6.21 friday 金曜日</h4>
 		</article>
 	</div>
 	<footer id="footer">
+		<div id="sakana-widget"></div>
 		<p class="copyright">Links</a></p>
-		<p class="copyright"><a href="https://misakabit.com">=Misakabit=</a>&nbsp;|&nbsp;<a href="https://sakurajimachino.github.io">=sakurajimachino=</a>&nbsp;|&nbsp;<a href="https://blog.xiaotianchen.com">My flightsimulator's livery website</a></p>
-		<br \>
+		<p class="copyright"><a href="https://misakabit.com">=Misakabit=</a>&nbsp;|&nbsp;<a href="https://sakurajimachino.github.io">=sakurajimachino=</a>&nbsp;|&nbsp;<a href="https://blog.xiaotianchen.com">=My flightsimulator's livery website=</a></p>
 		<p class="copyright"><a href="index.html">中文界面</a></p>
+
+		<link
+		rel="stylesheet"
+		href="assets/css/sakana.min.css"
+		/>
+		<script>
+		function initSakanaWidget() {
+		new SakanaWidget().mount('#sakana-widget');
+		}
+		</script>
+		<script async onload="initSakanaWidget()" src="assets/js/sakana.min.js"></script>
+
 		<p class="copyright">&copy; XiaotianChen 2024</p>
 		<p class="copyright">website is already running:<span id="htmer_time_ENG" style="color: white;"></span></p>
 	</footer>

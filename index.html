@@ -47,15 +47,26 @@
 			<h4><a href="https://twitter.com/xiaotian7196" target="_blank" rel="noopener noreferrer">X(twitter)</a></h4>
 			<h4><a href="https://space.bilibili.com/354565010?" target="_blank" rel="noopener noreferrer">Bilibili</a></h4>
 			<h4><a href="https://steamcommunity.com/id/XiaoTian7196/" target="_blank" rel="noopener noreferrer">STEAM</a></h4>
+			<h4><a href="https://github.com/dsrkafuu/sakana-widget" target="_blank" rel="noopener noreferrer">首页那个石蒜模拟器的Github</a>（作者：<a href="https://github.com/dsrkafuu" target="_blank" rel="noopener noreferrer">DSRKafuU</a>）</h4>
 			<h4>感谢你能看到这里！</h4>
-			<h4>2024.5.31周五 金曜日</h4>
+			<h4>2024.6.21周五 金曜日</h4>		
 		</article>
 	</div>
 	<footer id="footer">
+		<div id="sakana-widget"></div>
 		<p class="copyright">友情链接</a></p>
 		<p class="copyright"><a href="https://misakabit.com">=Misakabit=</a>&nbsp;|&nbsp;<a href="https://sakurajimachino.github.io">=sakurajimachino=</a>&nbsp;|&nbsp;<a href="https://blog.xiaotianchen.com">我的模拟飞行涂装区</a></p>
-		<br \>
         <p class="copyright"><a href="EngIndex.html">english page</a></p>
+		<link
+		rel="stylesheet"
+		href="assets/css/sakana.min.css"
+		/>
+		<script>
+		function initSakanaWidget() {
+		new SakanaWidget().mount('#sakana-widget');
+		}
+		</script>
+		<script async onload="initSakanaWidget()" src="assets/js/sakana.min.js"></script>
         <p class="copyright">&copy; XiaotianChen 2024</p>
         <p class="copyright">网页已经运行：<span id="htmer_time" style="color: white;"></span></p>
 	</footer>
