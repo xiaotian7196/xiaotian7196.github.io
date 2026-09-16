@@ -1,104 +1,204 @@
-<!DOCTYPE HTML>
-<html lang="zh-CN">
-
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
 <head>
-    <link rel="shortcut icon" href="ISEKAI.png" type="image/png" />
-    <title>欢迎来到我的主页! | xiaotian7196</title>
-    <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport"/>
-    <link href="assets/css/main.css" rel="stylesheet"/>
-    <link href="assets/css/csshake.min.css" rel="stylesheet"/>
-    <noscript>
-        <link href="assets/css/noscript.css" rel="stylesheet"/>
-    </noscript>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Xiaotian 的个人主页，记录兴趣、近况与联系方式">
+  <meta name="theme-color" content="#050505">
+  <title>Xiaotian</title>
+  <link rel="icon" href="assets/images/favicon.png" type="image/png">
+  <link rel="stylesheet" href="assets/vendor/sakana/sakana.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="assets/vendor/sakana/sakana.min.js" defer></script>
+  <script src="script.js" defer></script>
 </head>
+<body>
+  <a class="skip-link" href="#main" data-i18n="skip">跳到主要内容</a>
 
-<body class="is-preload">
-<div id="wrapper">
-    <header id="header">
-        <div class="content">
-            <div class="inner">
-                <h1>Xiaotian&nbsp7196</h1>
-                <p>无论如何，请不要后悔与我相遇</p>
-                <p>你在UTC<span id="timezone"></span>区，现在是：<span id="time"></span></p>
-            </div>
+  <div class="floating-controls">
+      <div class="language-switcher" role="group" aria-label="Language">
+        <button type="button" data-lang="zh" aria-pressed="true">中</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+        <button type="button" data-lang="ja" aria-pressed="false">日</button>
+      </div>
+      <button class="theme-toggle" type="button" aria-label="切换到白天模式" data-i18n-aria="themeToLight">
+        <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="3.5"></circle>
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42"></path>
+        </svg>
+        <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M20 15.2A8.5 8.5 0 0 1 8.8 4a8.5 8.5 0 1 0 11.2 11.2Z"></path>
+        </svg>
+      </button>
+  </div>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="hero-art" role="img" aria-label=""></div>
+      <div class="hero-copy">
+        <h1 data-i18n="heroTitle">欢迎！</h1>
+        <p class="hero-summary" data-i18n="heroSummary">我是 Xiaotian，这里整理了一些个人兴趣、近期照片和常用链接，感谢你的来访</p>
+        <div class="hero-meta">
+          <span class="status-dot" aria-hidden="true"></span>
+          <span data-i18n="localTime">现在你的时间</span>
+          <time id="local-time">--:--:--</time>
+          <span id="timezone">你在UTC</span>
         </div>
-        <nav>
-            <ul>
-                <li><a href="#intro">早~~（关于我）</a></li>
-                <li><a href="#work">午安~（近期情况）</a></li>
-                <li><a href="#contact">晚安~（怎么找我）</a></li>
-            </ul>
-        </nav>
-    </header>
-    <div id="main">
-        <article id="intro">
-            <h2 class="major">早哦~~这里是关于我</h2>
-            <span class="image main"><img alt="" src="images/moring.jpg"/></span>
-            <p>MBTI:ISFJ&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(精神状态极不正常)</p>
-            <p>
-                二次元、宅、看番、HIFI、数码硬件； 喜好玩模拟类游戏、战争雷霆、WARNO等游戏</p>
-            <p>因为感觉自己没什么能发出来的文章所以只做了个主页（</p>
-            <p><a href="https://blog.koten.top/index.php/archives/35/" rel="noopener noreferrer"
-                  target="_blank">我看过的番！</a>
-            </p>
-        </article>
-        <article id="work">
-            <h2 class="major">午安~~~近期情况？</h2>
-            <p></p>
-            <span class="image main"><img alt="" src="images/mahiru.jpg"/>日落</span>
-            <p></p>
-            <span class="image main">香港启德公园<img alt="" src="images/VHHX1.jpg"/><img alt=""
-                                                                                          src="images/VHHX2.jpg"/></span>
-        </article>
-        <article id="contact">
-            <h2 class="major">到晚上了吗~~那..晚安！</h2>
-            <h3>以下，是我的联系方式~</h3>
-            <span class="image main"><img alt="" src="images/night.jpg"/></span>
-            <h4><a href="https://twitter.com/xiaotian7196" rel="noopener noreferrer" target="_blank">X(twitter)</a>
-            </h4>
-            <h4><a href="https://space.bilibili.com/354565010?" rel="noopener noreferrer"
-                   target="_blank">Bilibili</a></h4>
-            <h4><a href="https://steamcommunity.com/id/XiaoTian7196/" rel="noopener noreferrer"
-                   target="_blank">STEAM</a></h4>
-            <h4><a href="https://github.com/dsrkafuu/sakana-widget" rel="noopener noreferrer"
-                   target="_blank">石蒜小挂件Github</a>（作者：<a href="https://github.com/dsrkafuu"
-                                                                          rel="noopener noreferrer" target="_blank">DSRKafuU</a>）
-            </h4>
-            <h4><a href="https://space.bilibili.com/299212359?" rel="noopener noreferrer"
-                   target="_blank">背景作者：绘谋</a></h4>
-            <h4>感谢你能看到这里！</h4>
-            <h4>2025.11.6 周六 土曜日</h4>
-            <h4 class="shake-slow shake-constant">为什么广州的交通这么的烂——</h4>
-        </article>
-    </div>
-    <footer id="footer">
-        <div id="sakana-widget"></div>
-        <p class="copyright">友情链接</p>
-        <p class="copyright"><a href="https://starneko.com/">=浅羽星晚=</a>&nbsp;|&nbsp;
-            <a href="https://blog.koten.top">=我的模拟飞行涂装区=</a></p>
-        <p class="copyright"><a href="EngIndex.html">english page</a></p>
-        <link href="assets/css/sakana.min.css" rel="stylesheet"/>
-        <script>
-            function initSakanaWidget() {
-                new SakanaWidget().mount('#sakana-widget');
-            }
-        </script>
-        <script async onload="initSakanaWidget()" src="assets/js/sakana.min.js"></script>
-        <p class="copyright"><a href="https://beian.miit.gov.cn/" rel="noopener noreferrer" target="_blank">粤ICP备2024346856号-1</a>&nbsp;|&nbsp;<a
-                href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44011702000848"><img
-                rel="noopener noreferrer" src="images/beian.png" target="_blank" width="15px">粤公网安备44011702000848号</a>
-        </p>
-        <p class="copyright">网页已经运行：<span id="html_time" style="color: white;"></span></p>
-    </footer>
-</div>
-<div id="bg"></div>
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/browser.min.js"></script>
-<script src="assets/js/breakpoints.min.js"></script>
-<script src="assets/js/util.js"></script>
-<script src="assets/js/main.js"></script>
-<script src="assets/js/time.js"></script>
-</body>
+        <a class="button button-primary" href="#about">
+          <span data-i18n="viewProfile">查看主页</span>
+          <span aria-hidden="true">↘</span>
+        </a>
+      </div>
+    </section>
 
+    <section class="section about-section" id="about">
+      <div class="section-index" aria-hidden="true">01</div>
+      <div class="section-heading">
+        <p class="eyebrow" data-i18n="aboutLabel">简要介绍</p>
+        <h2 data-i18n="aboutTitle">关于我</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-image frame-image">
+          <img src="assets/images/baka.jpg" alt="" loading="lazy">
+        </div>
+        <div class="about-copy">
+          <p class="lead" data-i18n="aboutLead">目前在学习人工智能相关内容，也长期关注数码硬件与音频设备</p>
+          <div class="fact-list">
+            <div class="fact-row">
+              <span>MBTI</span>
+              <strong>ISFJ</strong>
+            </div>
+            <div class="fact-row">
+              <span data-i18n="focusKey">方向</span>
+              <strong data-i18n="focusValue">人工智能</strong>
+            </div>
+            <div class="fact-row">
+              <span data-i18n="interestKey">兴趣</span>
+              <strong data-i18n="interestValue">动画、HIFI、数码硬件</strong>
+            </div>
+            <div class="fact-row">
+              <span data-i18n="gamesKey">游戏</span>
+              <strong data-i18n="gamesValue">模拟类、战争雷霆、WARNO</strong>
+            </div>
+          </div>
+          <a class="text-link" href="https://blog.koten.top/index.php/archives/35/" target="_blank" rel="noopener noreferrer">
+            <span data-i18n="animeLink">看过的动画列表</span><span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section recent-section" id="recent">
+      <div class="section-index" aria-hidden="true">02</div>
+      <div class="section-heading heading-wide">
+        <p class="eyebrow" data-i18n="recentLabel">照片记录</p>
+        <h2 data-i18n="recentTitle">近期</h2>
+        <p data-i18n="recentIntro">一些没有特别整理过的画面</p>
+      </div>
+      <div class="photo-grid">
+        <figure class="photo-card photo-card-large">
+          <img src="assets/images/sunset.jpg" alt="" loading="lazy">
+          <figcaption><span data-i18n="sunset">日落</span><span>01</span></figcaption>
+        </figure>
+        <figure class="photo-card">
+          <img src="assets/images/kai-tak-1.jpg" alt="" loading="lazy">
+          <figcaption><span data-i18n="kaiTak">香港启德公园</span><span>02</span></figcaption>
+        </figure>
+        <figure class="photo-card">
+          <img src="assets/images/kai-tak-2.jpg" alt="" loading="lazy">
+          <figcaption><span data-i18n="kaiTakDetail">启德 / 另一视角</span><span>03</span></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section music-section" id="music">
+      <div class="section-index" aria-hidden="true">03</div>
+      <div class="section-heading">
+        <p class="eyebrow" data-i18n="musicLabel">正在听</p>
+        <h2 data-i18n="musicTitle">歌单</h2>
+      </div>
+      <div class="music-layout">
+        <div class="music-copy">
+          <p class="lead" data-i18n="musicText">一个常用的网易云歌单，可以在右侧窗口内浏览曲目</p>
+          <a class="button button-secondary" href="https://music.163.com/playlist?id=438137221&amp;uct2=U2FsdGVkX1+IdcsxJdRT3CnYYoHhE926hUm6GRmsC7w=" target="_blank" rel="noopener noreferrer">
+            <span data-i18n="openPlaylist">在网易云音乐打开</span>
+            <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+        <div class="player-window">
+          <div class="window-bar">
+            <div class="window-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+            <span>music.163.com / playlist</span>
+          </div>
+          <div class="player-scroll">
+            <iframe
+              title="NetEase Cloud Music playlist"
+              src="https://music.163.com/outchain/player?type=0&amp;id=438137221&amp;auto=0&amp;height=430"
+              width="100%"
+              height="450"
+              scrolling="yes"
+              loading="lazy"
+              allow="autoplay">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact-section" id="contact">
+      <div class="section-index" aria-hidden="true">04</div>
+      <div class="contact-panel">
+        <div>
+          <p class="eyebrow" data-i18n="contactLabel">站外链接</p>
+          <h2 data-i18n="contactTitle">可以在这些地方找到我</h2>
+        </div>
+        <div class="contact-links">
+          <a href="https://twitter.com/xiaotian%37%31%39%36" target="_blank" rel="noopener noreferrer"><span>X / Twitter</span><span>↗</span></a>
+          <a href="https://forums.x-plane.org/profile/1215689-xiaotian%37%31%39%36/" target="_blank" rel="noopener noreferrer"><span>x-plane.org</span><span>↗</span></a>
+          <a href="https://flightsim.to/profile/xiaotian%37%31%39%36" target="_blank" rel="noopener noreferrer"><span>flightsim.to</span><span>↗</span></a>
+          <a href="https://blog.koten.top" target="_blank" rel="noopener noreferrer"><span data-i18n="liverySite">模拟飞行涂装区</span><span>↗</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-main">
+      <p data-i18n="footerText">感谢访问，页面会不定期更新</p>
+      <div class="friend-links">
+        <span data-i18n="friends">友情链接</span>
+        <a href="https://starneko.com/" target="_blank" rel="noopener noreferrer">浅羽星晚</a>
+        <a href="https://www.lpxlpx7.top/" target="_blank" rel="noopener noreferrer">愛する人!</a>
+      </div>
+    </div>
+    <p class="sakana-notice">
+      <span data-i18n="sakanaNotice">本站使用</span>
+      <a href="https://github.com/dsrkafuu/sakana-widget" target="_blank" rel="noopener noreferrer">Sakana Widget</a>
+      <span data-i18n="sakanaAuthor">，由 DSRKafuU 开发并以 MIT License 发布。</span>
+      <br>
+      <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">粤ICP备2024346856号-1 | </a>
+      <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44011702000848" target="_blank" rel="noopener noreferrer">粤公网安备44011702000848号</a>
+    </p>
+  </footer>
+
+  <div class="sakana-dock" aria-label="Sakana Widget">
+    <button class="sakana-restore" type="button" aria-label="恢复组件" title="恢复组件" data-i18n-label="restoreWidget" hidden>
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M8 3H3v5M16 3h5v5M21 16v5h-5M3 16v5h5M3 8l6-6M21 8l-6-6M21 16l-6 6M3 16l6 6"></path>
+      </svg>
+    </button>
+    <button class="sakana-move" type="button" aria-label="移动组件">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 2v20M2 12h20M12 2l-3 3M12 2l3 3M12 22l-3-3M12 22l3-3M2 12l3-3M2 12l3 3M22 12l-3-3M22 12l-3 3"></path>
+      </svg>
+      <span data-i18n="moveWidget">移动</span>
+    </button>
+    <button class="sakana-minimize" type="button" aria-label="最小化组件" title="最小化组件" data-i18n-label="minimizeWidget">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M5 12h14"></path>
+      </svg>
+    </button>
+    <div id="sakana-widget"></div>
+  </div>
+</body>
 </html>
