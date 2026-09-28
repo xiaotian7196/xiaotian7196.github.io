@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Xiaotian 的看番记录单：日漫、剧场版与国漫列表">
+  <meta name="theme-color" content="#050505">
+  <title>看番记录单 | xiaotian7196</title>
+  <link rel="icon" href="assets/images/favicon.png" type="image/png">
+  <link rel="stylesheet" href="assets/vendor/sakana/sakana.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="anime.css">
+  <script src="assets/vendor/sakana/sakana.min.js" defer></script>
+  <script src="script.js" defer></script>
+  <script src="anime.js" defer></script>
+</head>
+<body class="anime-page">
+  <a class="skip-link" href="#anime-list" data-i18n="animeSkip">跳到番剧列表</a>
+
+  <div class="floating-controls">
+    <div class="language-switcher" role="group" aria-label="Language">
+      <button type="button" data-lang="zh" aria-pressed="true">中</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      <button type="button" data-lang="ja" aria-pressed="false">日</button>
+    </div>
+    <button class="theme-toggle" type="button" aria-label="切换到白天模式" data-i18n-aria="themeToLight">
+      <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="12" cy="12" r="3.5"></circle>
+        <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42"></path>
+      </svg>
+      <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M20 15.2A8.5 8.5 0 0 1 8.8 4a8.5 8.5 0 1 0 11.2 11.2Z"></path>
+      </svg>
+    </button>
+  </div>
+
+  <header class="anime-topbar">
+    <a class="brand-mark" href="index.html">
+    </a>
+    <nav class="anime-nav" aria-label="Site">
+      <a href="index.html" data-i18n="animeHome">主页</a>
+      <a href="anime.html" aria-current="page" data-i18n="animePageLink">看番记录</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="section anime-list-section" id="anime-list">
+      <div class="section-index" aria-hidden="true"></div>
+      <div class="section-heading heading-wide">
+        <h2 data-i18n="animeListTitle">我看过的番！</h2>
+      </div>
+
+      <div class="anime-toolbar">
+        <div class="anime-filter" role="group" aria-label="Filter">
+          <button type="button" class="anime-chip is-active" data-filter="all" aria-pressed="true">
+            <span data-i18n="animeFilterAll">全部</span>
+            <b data-count="all">0</b>
+          </button>
+          <button type="button" class="anime-chip" data-filter="tv" aria-pressed="false">
+            <span data-i18n="animeCatTv">日漫</span>
+            <b data-count="tv">0</b>
+          </button>
+          <button type="button" class="anime-chip" data-filter="movie" aria-pressed="false">
+            <span data-i18n="animeCatMovie">剧场版</span>
+            <b data-count="movie">0</b>
+          </button>
+          <button type="button" class="anime-chip" data-filter="cn" aria-pressed="false">
+            <span data-i18n="animeCatCn">国漫</span>
+            <b data-count="cn">0</b>
+          </button>
+        </div>
+
+      </div>
+
+      <p class="anime-result-line">
+        <span></span>
+        <button type="button" class="anime-reset" data-i18n="animeReset" hidden>清除筛选</button>
+      </p>
+
+      <div class="anime-groups" id="anime-groups">
+        <p class="anime-loading" data-i18n="animeLoading">正在载入清单…</p>
+        <noscript>
+          <p class="anime-loading">此页面需要启用 JavaScript 才能显示番剧清单。</p>
+        </noscript>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-main">
+      <div class="friend-links">
+        <span data-i18n="friends">友情链接</span>
+        <a href="https://starneko.com/" target="_blank" rel="noopener noreferrer">浅羽星晚</a>
+        <a href="https://www.lpxlpx7.top/" target="_blank" rel="noopener noreferrer">愛する人!</a>
+      </div>
+    </div>
+    <p class="sakana-notice">
+      <span data-i18n="animeDataNote">中文名为 B 站常用译名，日文名为官方原名；英文界面下同样显示日文原名。</span>
+      <br>
+      <span data-i18n="animeUpdatedLabel">最后整理于</span>
+      <span id="anime-updated">--</span>
+      <span>·</span>
+      <span>© <span id="current-year">2026</span> xiaotian7196</span>
+      <br>
+      <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">粤ICP备2024346856号-1 | </a>
+      <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44011702000848" target="_blank" rel="noopener noreferrer">粤公网安备44011702000848号</a>
+    </p>
+  </footer>
+
+  <div class="sakana-dock" aria-label="Sakana Widget">
+    <button class="sakana-restore" type="button" aria-label="恢复组件" title="恢复组件" data-i18n-label="restoreWidget" hidden>
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M8 3H3v5M16 3h5v5M21 16v5h-5M3 16v5h5M3 8l6-6M21 8l-6-6M21 16l-6 6M3 16l6 6"></path>
+      </svg>
+    </button>
+    <button class="sakana-move" type="button" aria-label="移动组件">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 2v20M2 12h20M12 2l-3 3M12 2l3 3M12 22l-3-3M12 22l3-3M2 12l3-3M2 12l3 3M22 12l-3-3M22 12l-3 3"></path>
+      </svg>
+      <span data-i18n="moveWidget">移动</span>
+    </button>
+    <button class="sakana-minimize" type="button" aria-label="最小化组件" title="最小化组件" data-i18n-label="minimizeWidget">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M5 12h14"></path>
+      </svg>
+    </button>
+    <div id="sakana-widget"></div>
+  </div>
+
+  <script type="application/json" id="anime-data-fallback">{
+  "meta": {
+    "titleZh": "看番记录单",
+    "source": "https://blog.koten.top/index.php/archives/35/",
+    "updated": "2026-09-27",
+    "note": "中文名为 B 站常用译名，日文名为官方日本原名。新增作品时在 items 里追加一条即可（id 保持唯一）。"
+  },
+  "categories": [
+    {
+      "id": "tv",
+      "labels": { "zh": "日漫", "ja": "日本のアニメ", "en": "日本のアニメ" }
+    },
+    {
+      "id": "movie",
+      "labels": { "zh": "剧场版", "ja": "劇場版", "en": "劇場版" }
+    },
+    {
+      "id": "cn",
+      "labels": { "zh": "国漫", "ja": "中国アニメ", "en": "中国アニメ" }
+    }
+  ],
+  "items": [
+    { "id": "guilty-crown", "category": "tv", "zh": "罪恶王冠", "ja": "ギルティクラウン" },
+    { "id": "atri", "category": "tv", "zh": "ATRI-My Dear Moments", "ja": "ATRI -My Dear Moments-" },
+    { "id": "girls-band-cry", "category": "tv", "zh": "Girls Band Cry", "ja": "ガールズバンドクライ" },
+    { "id": "mygo", "category": "tv", "zh": "BanG Dream! It's MyGO!!!!!", "ja": "BanG Dream! It's MyGO!!!!!" },
+    { "id": "ave-mujica", "category": "tv", "zh": "BanG Dream! Ave Mujica", "ja": "BanG Dream! Ave Mujica" },
+    { "id": "roshidere", "category": "tv", "zh": "不时轻声地以俄语遮羞的邻座艾莉同学", "ja": "時々ボソッとロシア語でデレる隣のアーリャさん" },
+    { "id": "o-tonari-no-tenshi", "category": "tv", "zh": "关于我在无意间被隔壁的天使变成废柴这件事", "ja": "お隣の天使様にいつの間にか駄目人間にされていた件" },
+    { "id": "plastic-memories", "category": "tv", "zh": "可塑性记忆", "ja": "プラスティック・メモリーズ" },
+    { "id": "spy-family-s1", "category": "tv", "zh": "间谍过家家 第一季", "ja": "SPY×FAMILY 第1クール" },
+    { "id": "aobuta", "category": "tv", "zh": "青春猪头少年不会梦到兔女郎学姐", "ja": "青春ブタ野郎はバニーガール先輩の夢を見ない" },
+    { "id": "conan", "category": "tv", "zh": "名侦探柯南", "ja": "名探偵コナン" },
+    { "id": "anohana", "category": "tv", "zh": "未闻花名", "ja": "あの日見た花の名前を僕達はまだ知らない。" },
+    { "id": "shiroseijo", "category": "tv", "zh": "白圣女与黑牧师", "ja": "白聖女と黒牧師" },
+    { "id": "frieren", "category": "tv", "zh": "葬送的芙莉莲", "ja": "葬送のフリーレン" },
+    { "id": "chuunibyou", "category": "tv", "zh": "中二病也要谈恋爱！", "ja": "中二病でも恋がしたい！" },
+    { "id": "chuunibyou-koi", "category": "tv", "zh": "中二病也要谈恋爱！恋", "ja": "中二病でも恋がしたい！戀" },
+    { "id": "hanebado", "category": "tv", "zh": "轻羽飞扬", "ja": "はねバド！" },
+    { "id": "clockwork-planet", "category": "tv", "zh": "时钟机关之星", "ja": "クロックワーク・プラネット" },
+    { "id": "eromanga-sensei", "category": "tv", "zh": "埃罗芒阿老师", "ja": "エロマンガ先生" },
+    { "id": "railgun", "category": "tv", "zh": "某科学的超电磁炮", "ja": "とある科学の超電磁砲" },
+    { "id": "kimetsu", "category": "tv", "zh": "鬼灭之刃", "ja": "鬼滅の刃" },
+    { "id": "oshinoko-s1", "category": "tv", "zh": "我推的孩子 第一季", "ja": "【推しの子】" },
+    { "id": "lycoris-recoil", "category": "tv", "zh": "莉可丽丝", "ja": "リコリス・リコイル" },
+    { "id": "himouto-s1", "category": "tv", "zh": "干物妹！小埋 第一季", "ja": "干物妹！うまるちゃん" },
+    { "id": "himouto-s2", "category": "tv", "zh": "干物妹！小埋 第二季", "ja": "干物妹！うまるちゃんR" },
+    { "id": "hataraku-saibou", "category": "tv", "zh": "工作细胞", "ja": "はたらく細胞" },
+    { "id": "kaitou-joker-1412", "category": "tv", "zh": "怪盗基德 1412", "ja": "まじっく快斗1412" },
+    { "id": "magic-kaito", "category": "tv", "zh": "怪盗基德", "ja": "まじっく快斗" },
+    { "id": "yosusora", "category": "tv", "zh": "缘之空", "ja": "ヨスガノソラ" },
+    { "id": "inuyasha", "category": "tv", "zh": "犬夜叉", "ja": "犬夜叉" },
+    { "id": "bisque-doll", "category": "tv", "zh": "更衣人偶坠入爱河", "ja": "その着せ替え人形は恋をする" },
+    { "id": "kamitsubaki", "category": "tv", "zh": "神椿市建设中。", "ja": "神椿市建設中。" },
+    { "id": "kaoru-hana", "category": "tv", "zh": "薰香花朵凛然绽放", "ja": "薫る花は凛と咲く" },
+    { "id": "gleipnir", "category": "tv", "zh": "格莱普尼尔", "ja": "グレイプニル" },
+
+    { "id": "kimi-no-na-wa", "category": "movie", "zh": "你的名字", "ja": "君の名は。" },
+    { "id": "weathering-with-you", "category": "movie", "zh": "天气之子", "ja": "天気の子" },
+    { "id": "spirited-away", "category": "movie", "zh": "千与千寻", "ja": "千と千尋の神隠し" },
+    { "id": "suzume", "category": "movie", "zh": "铃芽之旅", "ja": "すずめの戸締まり" },
+    { "id": "aobuta-movie", "category": "movie", "zh": "青春猪头少年不会梦到怀梦美少女", "ja": "青春ブタ野郎はゆめみる少女の夢を見ない" },
+    { "id": "aobuta-odekake", "category": "movie", "zh": "青春猪头少年不做娇怜外出妹的梦", "ja": "青春ブタ野郎はおでかけシスターの夢を見ない" },
+    { "id": "aobuta-randoseru", "category": "movie", "zh": "青春猪头少年不做小学美少女的梦", "ja": "青春ブタ野郎はランドセルガールの夢を見ない" },
+    { "id": "conan-01", "category": "movie", "zh": "名侦探柯南：计时引爆摩天楼", "ja": "名探偵コナン 時計じかけの摩天楼" },
+    { "id": "conan-02", "category": "movie", "zh": "名侦探柯南：第14个目标", "ja": "名探偵コナン 14番目の標的" },
+    { "id": "conan-03", "category": "movie", "zh": "名侦探柯南：世纪末的魔术师", "ja": "名探偵コナン 世紀末の魔術師" },
+    { "id": "conan-04", "category": "movie", "zh": "名侦探柯南：瞳孔中的暗杀者", "ja": "名探偵コナン 瞳の中の暗殺者" },
+    { "id": "conan-05", "category": "movie", "zh": "名侦探柯南：通往天国的倒计时", "ja": "名探偵コナン 天国へのカウントダウン" },
+    { "id": "conan-06", "category": "movie", "zh": "名侦探柯南：贝克街的亡灵", "ja": "名探偵コナン ベイカー街の亡霊" },
+    { "id": "conan-07", "category": "movie", "zh": "名侦探柯南：迷宫的十字路口", "ja": "名探偵コナン 迷宮の十字路" },
+    { "id": "conan-08", "category": "movie", "zh": "名侦探柯南：银翼的魔术师", "ja": "名探偵コナン 銀翼の奇術師" },
+    { "id": "conan-09", "category": "movie", "zh": "名侦探柯南：水平线上的阴谋", "ja": "名探偵コナン 水平線上の陰謀" },
+    { "id": "conan-10", "category": "movie", "zh": "名侦探柯南：侦探们的镇魂歌", "ja": "名探偵コナン 探偵たちの鎮魂歌" },
+    { "id": "conan-11", "category": "movie", "zh": "名侦探柯南：绀碧之棺", "ja": "名探偵コナン 紺碧の棺" },
+    { "id": "conan-12", "category": "movie", "zh": "名侦探柯南：战栗的乐谱", "ja": "名探偵コナン 戦慄の楽譜" },
+    { "id": "conan-13", "category": "movie", "zh": "名侦探柯南：漆黑的追踪者", "ja": "名探偵コナン 漆黒の追跡者" },
+    { "id": "conan-14", "category": "movie", "zh": "名侦探柯南：天空的遇难船", "ja": "名探偵コナン 天空の難破船" },
+    { "id": "conan-15", "category": "movie", "zh": "名侦探柯南：沉默的15分钟", "ja": "名探偵コナン 沈黙の15分" },
+    { "id": "conan-16", "category": "movie", "zh": "名侦探柯南：第11个前锋", "ja": "名探偵コナン 11人目のストライカー" },
+    { "id": "conan-17", "category": "movie", "zh": "名侦探柯南：绝海的侦探", "ja": "名探偵コナン 絶海の探偵" },
+    { "id": "conan-18", "category": "movie", "zh": "名侦探柯南：异次元的狙击手", "ja": "名探偵コナン 異次元の狙撃手" },
+    { "id": "conan-19", "category": "movie", "zh": "名侦探柯南：业火的向日葵", "ja": "名探偵コナン 業火の向日葵" },
+    { "id": "conan-20", "category": "movie", "zh": "名侦探柯南：纯黑的恶梦", "ja": "名探偵コナン 純黒の悪夢" },
+    { "id": "conan-21", "category": "movie", "zh": "名侦探柯南：唐红的恋歌", "ja": "名探偵コナン から紅の恋歌" },
+    { "id": "conan-22", "category": "movie", "zh": "名侦探柯南：零的执行人", "ja": "名探偵コナン ゼロの執行人" },
+    { "id": "conan-23", "category": "movie", "zh": "名侦探柯南：绀青之拳", "ja": "名探偵コナン 紺青の拳" },
+    { "id": "conan-24", "category": "movie", "zh": "名侦探柯南：绯色的子弹", "ja": "名探偵コナン 緋色の弾丸" },
+    { "id": "conan-25", "category": "movie", "zh": "名侦探柯南：万圣节的新娘", "ja": "名探偵コナン ハロウィンの花嫁" },
+    { "id": "conan-26", "category": "movie", "zh": "名侦探柯南：黑铁的鱼影", "ja": "名探偵コナン 黒鉄の魚影" },
+    { "id": "conan-27", "category": "movie", "zh": "名侦探柯南：100万美元的五棱星", "ja": "名探偵コナン 100万ドルの五稜星" },
+    { "id": "project-sekai-movie", "category": "movie", "zh": "世界计划：无法歌唱的初音未来", "ja": "劇場版プロジェクトセカイ 壊れたセカイと歌えないミク" },
+    { "id": "kimi-no-iro", "category": "movie", "zh": "你的颜色", "ja": "きみの色" },
+    { "id": "cho-kaguya-hime", "category": "movie", "zh": "超时空辉夜姬！", "ja": "超かぐや姫！" },
+
+    { "id": "shenbing-xiaojiang", "category": "cn", "zh": "神兵小将", "ja": "神兵小将" },
+    { "id": "xiaolv-yu-xiaolan", "category": "cn", "zh": "小绿与小蓝", "ja": "小緑と小藍" },
+    { "id": "fox-spirit-matchmaker", "category": "cn", "zh": "狐妖小红娘", "ja": "狐妖小红娘" }
+  ]
+}</script>
+</body>
+</html>

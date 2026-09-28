@@ -7,10 +7,13 @@ const translations = {
     navRecent: "近况",
     navMusic: "音乐",
     navContact: "联系",
+    pagesTitle: "站内页面",
+    animePage: "看番记录单",
     themeToLight: "切换到白天模式",
     themeToDark: "切换到黑夜模式",
     heroEyebrow: "个人主页 / 2026",
     heroTitle: "欢迎！",
+    herociallo:"Ciallo～(∠・ω< )⌒★",
     heroSummary: "我是 Xiaotian，没有什么项目所以只写了个个人主页，但是，非常感谢你的来访！",
     localTime: "现在你的时间",
     viewProfile: "往下滑",
@@ -29,7 +32,7 @@ const translations = {
     recentIntro: "一些没有特别整理过的画面",
     sunset: "日落",
     kaiTak: "香港启德公园",
-    kaiTakDetail: "启德 / 另一视角",
+    kaiTakDetail: "香港启德公园",
     musicLabel: "正在听",
     musicTitle: "歌单",
     musicText: "我喜欢的歌单！，可以在右侧窗口内浏览曲目",
@@ -53,10 +56,13 @@ const translations = {
     navRecent: "Recent",
     navMusic: "Music",
     navContact: "Contact",
+    pagesTitle: "On this site",
+    animePage: "Watchlist",
     themeToLight: "Switch to light mode",
     themeToDark: "Switch to dark mode",
     heroEyebrow: "Personal site / 2026",
-    heroTitle: "Welcome",
+    heroTitle: "Welcome!",
+    herociallo:"Ciallo～(∠・ω< )⌒★",
     heroSummary: "I'm Xiaotian, and this site contains a few notes on my interests, recent photos, and useful links",
     localTime: "Your local time",
     viewProfile: "View profile",
@@ -75,7 +81,7 @@ const translations = {
     recentIntro: "A few scenes, kept without much arrangement",
     sunset: "Sunset",
     kaiTak: "Kai Tak Park, Hong Kong",
-    kaiTakDetail: "Kai Tak / Another view",
+    kaiTakDetail: "Kai Tak Park, Hong Kong",
     musicLabel: "Listening",
     musicTitle: "Playlist",
     musicText: "A NetEase Cloud Music playlist I use regularly, with tracks available in the window",
@@ -99,10 +105,13 @@ const translations = {
     navRecent: "最近",
     navMusic: "音楽",
     navContact: "連絡先",
+    pagesTitle: "サイト内",
+    animePage: "視聴記録",
     themeToLight: "ライトモードに切り替える",
     themeToDark: "ダークモードに切り替える",
     heroEyebrow: "個人サイト / 2026",
-    heroTitle: "ようこそ",
+    heroTitle: "ようこそ!",
+    herociallo:"Ciallo～(∠・ω< )⌒★",
     heroSummary: "Xiaotianの個人サイト、特にプロジェクトはないので、個人的なホームページを作成しただけですが、訪問してくださって本当にありがとうございます！",
     localTime: "現在のローカル時刻",
     viewProfile: "下にスクロールしてください",
@@ -121,7 +130,7 @@ const translations = {
     recentIntro: "特に整理せずに残している写真です",
     sunset: "夕日",
     kaiTak: "香港・啓徳公園",
-    kaiTakDetail: "啓徳 / 別の視点",
+    kaiTakDetail: "香港・啓徳公園",
     musicLabel: "再生中",
     musicTitle: "プレイリスト",
     musicText: "私の好きなプレイリスト！右側のウィンドウ内で曲を閲覧できます。",
@@ -171,6 +180,9 @@ function applyTheme(theme) {
 }
 
 function updateThemeLabel() {
+  if (!themeToggle) {
+    return;
+  }
   const language = root.dataset.language || "zh";
   const key = root.dataset.theme === "dark" ? "themeToLight" : "themeToDark";
   themeToggle.setAttribute("aria-label", translations[language][key]);
@@ -217,13 +229,19 @@ function updateClock() {
   const hours = String(Math.floor(Math.abs(offset) / 60)).padStart(2, "0");
   const minutes = String(Math.abs(offset) % 60).padStart(2, "0");
 
-  document.getElementById("local-time").textContent = new Intl.DateTimeFormat(locale, {
+  const timeNode = document.getElementById("local-time");
+  const timezoneNode = document.getElementById("timezone");
+  if (!timeNode || !timezoneNode) {
+    return;
+  }
+
+  timeNode.textContent = new Intl.DateTimeFormat(locale, {
     hour: "2-digit",
     minute: "2-digit",
     second: "2-digit",
     hour12: false
   }).format(now);
-  document.getElementById("timezone").textContent = `UTC${sign}${hours}:${minutes}`;
+  timezoneNode.textContent = `UTC${sign}${hours}:${minutes}`;
 }
 
 function initializeScrollAnimations() {
@@ -241,6 +259,9 @@ function initializeScrollAnimations() {
 
   revealGroups.forEach(([selector, direction]) => {
     document.querySelectorAll(selector).forEach((element) => {
+      if (element.classList.contains("scroll-reveal")) {
+        return;
+      }
       element.classList.add("scroll-reveal");
       if (direction) {
         element.classList.add(direction);
@@ -249,11 +270,17 @@ function initializeScrollAnimations() {
   });
 
   document.querySelectorAll(".photo-card").forEach((card, index) => {
+    if (card.classList.contains("scroll-reveal")) {
+      return;
+    }
     card.classList.add("scroll-reveal");
     card.style.setProperty("--reveal-delay", `${index * 90}ms`);
   });
 
   document.querySelectorAll(".contact-links a").forEach((link, index) => {
+    if (link.classList.contains("scroll-reveal")) {
+      return;
+    }
     link.classList.add("scroll-reveal", "reveal-from-right");
     link.style.setProperty("--reveal-delay", `${120 + index * 70}ms`);
   });
@@ -261,6 +288,11 @@ function initializeScrollAnimations() {
   const elements = document.querySelectorAll(".scroll-reveal");
   if (!("IntersectionObserver" in window)) {
     elements.forEach((element) => element.classList.add("is-visible"));
+    return;
+  }
+
+  if (window.__revealObserver) {
+    elements.forEach((element) => window.__revealObserver.observe(element));
     return;
   }
 
@@ -278,8 +310,12 @@ function initializeScrollAnimations() {
     threshold: 0.08
   });
 
+  window.__revealObserver = observer;
   elements.forEach((element) => observer.observe(element));
 }
+
+/* 供看番记录页（anime.js）复用 */
+window.initializeScrollAnimations = initializeScrollAnimations;
 
 function initializeSakanaWidget() {
   if (!window.SakanaWidget) {
@@ -434,9 +470,11 @@ languageButtons.forEach((button) => {
   button.addEventListener("click", () => applyLanguage(button.dataset.lang));
 });
 
-themeToggle.addEventListener("click", () => {
-  applyTheme(root.dataset.theme === "dark" ? "light" : "dark");
-});
+if (themeToggle) {
+  themeToggle.addEventListener("click", () => {
+    applyTheme(root.dataset.theme === "dark" ? "light" : "dark");
+  });
+}
 
 const preferredTheme = getStoredValue("xiaotian-theme")
   || (window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
@@ -451,4 +489,8 @@ initializeSakanaWidget();
 initializeSakanaDockDrag();
 initializeFloatingControlsContext();
 setInterval(updateClock, 1000);
-document.getElementById("current-year").textContent = new Date().getFullYear();
+
+const currentYearNode = document.getElementById("current-year");
+if (currentYearNode) {
+  currentYearNode.textContent = new Date().getFullYear();
+}
