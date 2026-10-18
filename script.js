@@ -243,6 +243,7 @@ function applyLanguage(language, persist = false) {
   });
 
   updateThemeLabel();
+  updateClock();
   if (persist) {
     storeCookie("xiaotian-language", safeLanguage);
   }
@@ -258,18 +259,45 @@ function updateClock() {
   const minutes = String(Math.abs(offset) % 60).padStart(2, "0");
 
   const timeNode = document.getElementById("local-time");
+  const utcTimeNode = document.getElementById("utc-time");
   const timezoneNode = document.getElementById("timezone");
-  if (!timeNode || !timezoneNode) {
+  if (!timeNode || !utcTimeNode || !timezoneNode) {
     return;
   }
 
-  timeNode.textContent = new Intl.DateTimeFormat(locale, {
+  const timeOptions = {
     hour: "2-digit",
     minute: "2-digit",
     second: "2-digit",
     hour12: false
+  };
+
+  timeNode.textContent = new Intl.DateTimeFormat(locale, timeOptions).format(now);
+  utcTimeNode.textContent = new Intl.DateTimeFormat("en-GB", {
+    ...timeOptions,
+    timeZone: "UTC"
   }).format(now);
-  timezoneNode.textContent = `UTC${sign}${hours}:${minutes}`;
+
+  if (language === "zh" || language === "ja") {
+    const direction = offset >= 0
+      ? (language === "zh" ? "东" : "東")
+      : (language === "zh" ? "西" : "西");
+    const zoneHours = Number(hours);
+    const zoneMinutes = Number(minutes);
+    if (language === "zh") {
+      const chineseNumbers = ["零", "一", "二", "三", "四", "五", "六", "七", "八", "九", "十", "十一", "十二"];
+      const zoneNumber = chineseNumbers[zoneHours] || String(zoneHours);
+      timezoneNode.textContent = zoneMinutes
+        ? `${direction}${zoneNumber}点${zoneMinutes}分区`
+        : `${direction}${zoneNumber}区`;
+    } else {
+      timezoneNode.textContent = zoneMinutes
+        ? `${direction}${zoneHours}時${String(zoneMinutes).padStart(2, "0")}分`
+        : `${direction}${zoneHours}時`;
+    }
+  } else {
+    timezoneNode.textContent = `UTC${sign}${hours}:${minutes}`;
+  }
 }
 
 function initializeScrollAnimations() {
