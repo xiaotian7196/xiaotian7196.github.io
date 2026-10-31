@@ -1,52 +1,71 @@
 const translations = {
     zh: {
         documentTitle: "欢迎来到我的主页! | xiaotian7196",
-        description: "Xiaotian 的个人主页",
+        description: "Xiaotian 的个人主�?,
         skip: "跳到主要内容",
         navAbout: "关于",
         navRecent: "近况",
         navMusic: "音乐",
         navContact: "联系",
         pagesTitle: "站内页面",
-        animePage: "看番记录单",
-        themeToLight: "切换到白天模式",
-        themeToDark: "切换到黑夜模式",
+        animePage: "看番记录�?,
+        themeToLight: "切换到白天模�?,
+        themeToDark: "切换到黑夜模�?,
         heroEyebrow: "个人主页 / 2026",
-        heroTitle: "欢迎！",
-        herociallo: "Ciallo～(∠・ω< )⌒★",
+        heroTitle: "欢迎�?,
+        herociallo: "Ciallo�?∠・ω< )⌒★",
         heroSummary: "我是 Xiaotian，没有什么项目所以只写了个个人主页，但是，非常感谢你的来访！",
         localTime: "现在你的时间",
         viewProfile: "往下滑",
-        aboutLabel: "简要介绍",
-        aboutTitle: "关于我",
-        aboutLead: "目前在学习人工智能相关内容，也在长期关注数码硬件与音频设备",
+        aboutLabel: "简要介�?,
+        aboutTitle: "关于�?,
+        aboutLead: "目前在学习人工智能相关内容，也在长期关注数码硬件与音频设�?,
         focusKey: "学习方向",
         focusValue: "人工智能",
         interestKey: "兴趣",
-        interestValue: "动画、HIFI、数码硬件",
+        interestValue: "动画、HIFI、数码硬�?,
         gamesKey: "游戏",
         gamesValue: "MSFS2020、X-plane12、战争雷霆、WARNO",
-        animeLink: "看过的动画列表",
+        animeLink: "看过的动画列�?,
         recentLabel: "照片记录",
         recentTitle: "近期",
-        recentIntro: "一些没有特别整理过的画面",
+        recentIntro: "一些没有特别整理过的画�?,
         BigPhoto: "日落",
         SmallPhoto1: "呼和浩特/大召",
-        SmallPhoto2: "秋",
-        musicLabel: "正在听",
+        SmallPhoto2: "�?,
+        musicLabel: "正在�?,
         musicTitle: "歌单",
         musicText: "我喜欢的歌单！，可以在右侧窗口内浏览曲目",
         openPlaylist: "在网易云音乐打开",
         contactLabel: "站外链接",
         contactTitle: "可以在这些地方找到我",
-        liverySite: "我的模拟飞行涂装库",
+        liverySite: "我的模拟飞行涂装�?,
         footerText: "无论如何，请不要后悔与我相遇",
         friends: "友情链接",
         moveWidget: "移动",
-        sakanaNotice: "本站使用的",
-        sakanaAuthor: "，由 DSRKafuU 开发并以 MIT License 发布。",
+        sakanaNotice: "本站使用�?,
+        sakanaAuthor: "，由 DSRKafuU 开发并�?MIT License 发布�?,
         restoreWidget: "恢复组件",
         minimizeWidget: "最小化组件"
+        ,liverySkip: "跳到涂装列表"
+        ,liveryHome: "主页"
+        ,liveryPageLink: "涂装�?
+        ,liveryRepo: "API 仓库 �?
+        ,liveryEyebrow: "模拟飞行 / 涂装资料�?
+        ,liveryTitle: "涂装�?
+        ,liveryIntro: "收集并整理我的模拟飞行涂装，按游戏、机型或关键词快速找到下一套涂装�?
+        ,browseLiveries: "浏览涂装"
+        ,apiLive: "API 在线"
+        ,liveryCollection: "收藏 / 在线数据"
+        ,liveryListTitle: "涂装列表"
+        ,liveryListIntro: "来自 LiveryAPI 的实时数据。点击卡片可以查看详情和下载地址�?
+        ,liveryAll: "全部"
+        ,liverySearchPlaceholder: "搜索涂装、机型�?
+        ,liverySearchButton: "搜索"
+        ,liveryLoading: "正在载入涂装�?
+        ,liveryReset: "清除筛�?
+        ,liveryFooter: "涂装资料�?LiveryAPI 提供，页面会随着仓库内容更新�?
+        ,liverySource: "数据接口"
     },
     en: {
         documentTitle: "欢迎来到我的主页! | xiaotian7196",
@@ -62,7 +81,7 @@ const translations = {
         themeToDark: "Switch to dark mode",
         heroEyebrow: "Personal site / 2026",
         heroTitle: "Welcome!",
-        herociallo: "Ciallo～(∠・ω< )⌒★",
+        herociallo: "Ciallo�?∠・ω< )⌒★",
         heroSummary: "I'm Xiaotian, and this site contains a few notes on my interests, recent photos, and useful links",
         localTime: "Your local time",
         viewProfile: "View profile",
@@ -89,62 +108,100 @@ const translations = {
         contactLabel: "External links",
         contactTitle: "You can find me here",
         liverySite: "My Flight simulator liveries",
-        footerText: "どうか、私と出会ったことを後悔しないでください。",
+        footerText: "どうか、私と出会ったことを後悔しないでください�?,
         friends: "Links",
         moveWidget: "Move",
         sakanaNotice: "This site uses",
         sakanaAuthor: ", developed by DSRKafuU and released under the MIT License.",
         restoreWidget: "Restore widget",
         minimizeWidget: "Minimize widget"
+        ,liverySkip: "Skip to the livery list"
+        ,liveryHome: "Home"
+        ,liveryPageLink: "Liveries"
+        ,liveryRepo: "API repository �?
+        ,liveryEyebrow: "FLIGHT SIMULATION / LIVERY ARCHIVE"
+        ,liveryTitle: "Liveries"
+        ,liveryIntro: "A small archive of my flight-simulator liveries. Find the next one by simulator, aircraft, or keyword."
+        ,browseLiveries: "Browse liveries"
+        ,apiLive: "API LIVE"
+        ,liveryCollection: "COLLECTION / ONLINE"
+        ,liveryListTitle: "Livery list"
+        ,liveryListIntro: "Live data from LiveryAPI. Open a card to view details and download links."
+        ,liveryAll: "All"
+        ,liverySearchPlaceholder: "Search liveries, aircraft�?
+        ,liverySearchButton: "Search"
+        ,liveryLoading: "Loading liveries�?
+        ,liveryReset: "Clear filters"
+        ,liveryFooter: "Livery data is provided by LiveryAPI and updates with the repository."
+        ,liverySource: "Data API"
     },
     ja: {
         documentTitle: "欢迎来到我的主页! | xiaotian7196",
-        description: "Xiaotianの個人サイト",
-        skip: "メインコンテンツへ移動",
+        description: "Xiaotianの個人サイ�?,
+        skip: "メインコンテンツへ移�?,
         navAbout: "プロフィール",
-        navRecent: "最近",
+        navRecent: "最�?,
         navMusic: "音楽",
-        navContact: "連絡先",
+        navContact: "連絡�?,
         pagesTitle: "サイト内",
         animePage: "視聴記録",
         themeToLight: "ライトモードに切り替える",
-        themeToDark: "ダークモードに切り替える",
-        heroEyebrow: "個人サイト / 2026",
+        themeToDark: "ダークモードに切り替え�?,
+        heroEyebrow: "個人サイ�?/ 2026",
         heroTitle: "ようこそ!",
-        herociallo: "Ciallo～(∠・ω< )⌒★",
+        herociallo: "Ciallo�?∠・ω< )⌒★",
         heroSummary: "Xiaotianの個人サイト、特にプロジェクトはないので、個人的なホームページを作成しただけですが、訪問してくださって本当にありがとうございます！",
-        localTime: "現在のローカル時刻",
-        viewProfile: "下にスクロールしてください",
-        aboutLabel: "簡単な紹介",
+        localTime: "現在のローカル時�?,
+        viewProfile: "下にスクロールしてくださ�?,
+        aboutLabel: "簡単な紹�?,
         aboutTitle: "プロフィール",
         aboutLead: "現在は人工知能に関する内容を学んでおり、デジタル機器やオーディオにも以前から関心があります",
         focusKey: "分野",
         focusValue: "人工知能",
         interestKey: "趣味",
-        interestValue: "アニメ、Hi-Fi、デジタル機器",
-        gamesKey: "ゲーム",
+        interestValue: "アニメ、Hi-Fi、デジタル機�?,
+        gamesKey: "ゲー�?,
         gamesValue: "MSFS2020、X-plane12、War Thunder、WARNO",
-        animeLink: "見たアニメのリスト",
+        animeLink: "見たアニメのリス�?,
         recentLabel: "写真記録",
-        recentTitle: "最近",
+        recentTitle: "最�?,
         recentIntro: "特に整理せずに残している写真です",
         BigPhoto: "夕日",
         SmallPhoto1: "フフホト / 大召",
-        SmallPhoto2: "秋",
-        musicLabel: "再生中",
+        SmallPhoto2: "�?,
+        musicLabel: "再生�?,
         musicTitle: "プレイリスト",
-        musicText: "私の好きなプレイリスト！右側のウィンドウ内で曲を閲覧できます。",
-        openPlaylist: "NetEase Cloud Musicで開く",
-        contactLabel: "外部リンク",
+        musicText: "私の好きなプレイリスト！右側のウィンドウ内で曲を閲覧できます�?,
+        openPlaylist: "NetEase Cloud Musicで開�?,
+        contactLabel: "外部リン�?,
         contactTitle: "こちらから見つけられます",
         liverySite: "私のフライトシミュレーター塗装ライブラリ",
-        footerText: "どうか、私と出会ったことを後悔しないでください。",
-        friends: "リンク",
+        footerText: "どうか、私と出会ったことを後悔しないでください�?,
+        friends: "リン�?,
         moveWidget: "移動",
-        sakanaNotice: "このサイトでは",
-        sakanaAuthor: "を使用しています。DSRKafuUにより開発され、MIT Licenseで公開されています。",
-        restoreWidget: "ウィジェットを戻す",
+        sakanaNotice: "このサイトで�?,
+        sakanaAuthor: "を使用しています。DSRKafuUにより開発され、MIT Licenseで公開されています�?,
+        restoreWidget: "ウィジェットを戻�?,
         minimizeWidget: "ウィジェットを最小化"
+        ,liverySkip: "塗装一覧へ移動"
+        ,liveryHome: "ホー�?
+        ,liveryPageLink: "塗装ステーション"
+        ,liveryRepo: "APIリポジト�?�?
+        ,liveryEyebrow: "フライトシミュレーション / 塗装アーカイ�?
+        ,liveryTitle: "塗装ステーション"
+        ,liveryIntro: "フライトシミュレーター用の塗装を整理しています。シミュレーター、機体、キーワードから探せます�?
+        ,browseLiveries: "塗装を見�?
+        ,apiLive: "API LIVE"
+        ,liveryCollection: "コレクション / ONLINE"
+        ,liveryListTitle: "塗装一�?
+        ,liveryListIntro: "LiveryAPIから取得したデータです。カードから詳細とダウンロード先を確認できます�?
+        ,liveryAll: "すべ�?
+        ,liverySearchPlaceholder: "塗装、機体を検索�?
+        ,liverySearchButton: "検索"
+        ,liveryLoading: "塗装を読み込み中�?
+        ,liveryReset: "絞り込みを解�?
+        ,liveryFooter: "塗装データはLiveryAPIから提供され、リポジトリの更新に合わせて変わります�?
+        ,liverySource: "データAPI"
     }
 };
 
@@ -238,6 +295,13 @@ function applyLanguage(language, persist = false) {
         }
     });
 
+    document.querySelectorAll("[data-i18n-placeholder]").forEach((element) => {
+        const key = element.dataset.i18nPlaceholder;
+        if (dictionary[key]) {
+            element.setAttribute("placeholder", dictionary[key]);
+        }
+    });
+
     languageButtons.forEach((button) => {
         button.setAttribute("aria-pressed", String(button.dataset.lang === safeLanguage));
     });
@@ -280,19 +344,19 @@ function updateClock() {
 
     if (language === "zh" || language === "ja") {
         const direction = offset >= 0
-            ? (language === "zh" ? "东" : "東")
-            : (language === "zh" ? "西" : "西");
+            ? (language === "zh" ? "�? : "�?)
+            : (language === "zh" ? "�? : "�?);
         const zoneHours = Number(hours);
         const zoneMinutes = Number(minutes);
         if (language === "zh") {
-            const chineseNumbers = ["零", "一", "二", "三", "四", "五", "六", "七", "八", "九", "十", "十一", "十二"];
+            const chineseNumbers = ["�?, "一", "�?, "�?, "�?, "�?, "�?, "�?, "�?, "�?, "�?, "十一", "十二"];
             const zoneNumber = chineseNumbers[zoneHours] || String(zoneHours);
             timezoneNode.textContent = zoneMinutes
-                ? `${direction}${zoneNumber}点${zoneMinutes}分区`
+                ? `${direction}${zoneNumber}�?{zoneMinutes}分区`
                 : `${direction}${zoneNumber}区`;
         } else {
             timezoneNode.textContent = zoneMinutes
-                ? `${direction}${zoneHours}時${String(zoneMinutes).padStart(2, "0")}分`
+                ? `${direction}${zoneHours}�?{String(zoneMinutes).padStart(2, "0")}分`
                 : `${direction}${zoneHours}時`;
         }
     } else {
@@ -370,7 +434,7 @@ function initializeScrollAnimations() {
     elements.forEach((element) => observer.observe(element));
 }
 
-/* 供看番记录页（anime.js）复用 */
+/* 供看番记录页（anime.js）复�?*/
 window.initializeScrollAnimations = initializeScrollAnimations;
 
 function initializeSakanaWidget() {

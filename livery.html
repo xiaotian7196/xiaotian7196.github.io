@@ -1,0 +1,105 @@
+<!doctype html>
+<html data-theme="dark" lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta content="Xiaotian 的模拟飞行涂装站：浏览、搜索并下载 MSFS 与 X-Plane 涂装" name="description">
+    <meta content="#050505" name="theme-color">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>模拟飞行涂装站 | xiaotian7196</title>
+    <link href="assets/images/favicon.png" rel="icon" type="image/png">
+    <link href="assets/vendor/sakana/sakana.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <link href="livery.css" rel="stylesheet">
+    <script defer src="assets/vendor/sakana/sakana.min.js"></script>
+    <script defer src="script.js"></script>
+    <script defer src="livery.js"></script>
+</head>
+<body class="livery-page">
+<a class="skip-link" data-i18n="liverySkip" href="#livery-list">跳到涂装列表</a>
+
+<div class="floating-controls">
+    <div aria-label="Language" class="language-switcher" role="group">
+        <button aria-pressed="true" data-lang="zh" type="button">中</button>
+        <button aria-pressed="false" data-lang="en" type="button">EN</button>
+        <button aria-pressed="false" data-lang="ja" type="button">日</button>
+    </div>
+    <button aria-label="切换到白天模式" class="theme-toggle" data-i18n-aria="themeToLight" type="button">
+        <svg aria-hidden="true" class="sun-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.5"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42"></path></svg>
+        <svg aria-hidden="true" class="moon-icon" viewBox="0 0 24 24"><path d="M20 15.2A8.5 8.5 0 0 1 8.8 4a8.5 8.5 0 1 0 11.2 11.2Z"></path></svg>
+    </button>
+</div>
+
+<header class="livery-topbar">
+    <a class="brand-mark" href="index.html"><span class="brand-dot"></span><span></span></a>
+    <nav aria-label="Site" class="livery-nav">
+        <a data-i18n="liveryHome" href="index.html">主页</a>
+        <a aria-current="page" data-i18n="liveryPageLink" href="livery.html">涂装站</a>
+        <a data-i18n="liveryRepo" href="https://github.com/xiaotian7196/LiveryAPI" rel="noopener noreferrer" target="_blank">API 仓库 ↗</a>
+    </nav>
+</header>
+
+<main id="main">
+    <section class="section livery-list-section" id="livery-list">
+        <div aria-hidden="true" class="section-index"></div>
+        <div class="section-heading heading-wide">
+            <div>
+                
+                <h2 data-i18n="liveryListTitle">涂装列表</h2>
+            </div>
+        </div>
+
+        <div class="livery-toolbar">
+            <div class="livery-filter" role="group" aria-label="Game filter">
+                <button aria-pressed="true" class="livery-chip is-active" data-game="" type="button"><span data-i18n="liveryAll">全部</span><b data-count="all">—</b></button>
+                <button aria-pressed="false" class="livery-chip" data-game="MFS 2020" type="button"><span>MSFS 2020</span><b data-count="MFS 2020">—</b></button>
+                <button aria-pressed="false" class="livery-chip" data-game="Xplane 11/12" type="button"><span>X-PLANE 11/12</span><b data-count="Xplane 11/12">—</b></button>
+            </div>
+            <form class="livery-search" id="livery-search-form" role="search">
+                <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 5 5"></path></svg>
+                <input aria-label="Search liveries" data-i18n-placeholder="liverySearchPlaceholder" id="livery-search" placeholder="搜索涂装、机型…" type="search">
+                <button data-i18n="liverySearchButton" type="submit">搜索</button>
+            </form>
+        </div>
+
+        <p class="livery-result-line"><span id="livery-result-count" data-i18n="liveryLoading">正在载入涂装…</span><button class="livery-reset" data-i18n="liveryReset" hidden id="livery-reset" type="button">清除筛选</button></p>
+        <div aria-live="polite" class="livery-grid" id="livery-grid"><p class="livery-loading" data-i18n="liveryLoading">正在载入涂装…</p></div>
+        <div class="livery-pagination" id="livery-pagination"></div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <div class="footer-main">
+        <div>
+            <p data-i18n="liveryFooter">涂装资料由 LiveryAPI 提供，页面会随着仓库内容更新。</p>
+        </div>
+        <div class="friend-links"><span data-i18n="friends">友情链接</span><a href="index.html" data-i18n="liveryHome">返回主页</a><a href="https://github.com/xiaotian7196/LiveryAPI" rel="noopener noreferrer" target="_blank">GitHub / LiveryAPI ↗</a></div>
+    </div>
+    <p class="sakana-notice"><span data-i18n="liverySource">数据接口</span> <a href="https://api.ソラ.jp/api/v1/liveries" rel="noopener noreferrer" target="_blank">api.ソラ.jp</a><br>© <span id="current-year">2026</span> xiaotian7196</p>
+</footer>
+
+<div aria-label="Livery details" aria-hidden="true" class="livery-modal" id="livery-modal" role="dialog">
+    <div class="livery-modal-backdrop" data-close-livery></div>
+    <div class="livery-modal-panel" role="document"><button aria-label="Close" class="livery-modal-close" data-close-livery type="button">×</button><div id="livery-modal-content"></div></div>
+</div>
+
+<div aria-label="Sakana Widget" class="sakana-dock">
+    <button aria-label="恢复组件" class="sakana-restore" data-i18n-label="restoreWidget" hidden title="恢复组件" type="button">
+        <svg aria-hidden="true" viewBox="0 0 24 24">
+            <path d="M8 3H3v5M16 3h5v5M21 16v5h-5M3 16v5h5M3 8l6-6M21 8l-6-6M21 16l-6 6M3 16l6 6"></path>
+        </svg>
+    </button>
+    <button aria-label="移动组件" class="sakana-move" type="button">
+        <svg aria-hidden="true" viewBox="0 0 24 24">
+            <path d="M12 2v20M2 12h20M12 2l-3 3M12 2l3 3M12 22l-3-3M12 22l3-3M2 12l3-3M2 12l3 3M22 12l-3-3M22 12l-3 3"></path>
+        </svg>
+        <span data-i18n="moveWidget">移动</span>
+    </button>
+    <button aria-label="最小化组件" class="sakana-minimize" data-i18n-label="minimizeWidget" title="最小化组件" type="button">
+        <svg aria-hidden="true" viewBox="0 0 24 24">
+            <path d="M5 12h14"></path>
+        </svg>
+    </button>
+    <div id="sakana-widget"></div>
+</div>
+</body>
+</html>
