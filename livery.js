@@ -77,6 +77,6 @@
     reset.addEventListener("click", () => {game = ""; keyword = ""; search.value = ""; page = 1; document.querySelector('.livery-chip[data-game=""]').click();});
     document.querySelectorAll("[data-close-livery]").forEach((node) => node.addEventListener("click", closeDetail));
     document.addEventListener("keydown", (event) => {if (event.key === "Escape") closeDetail();});
-    document.querySelectorAll("[data-lang]").forEach((button) => button.addEventListener("click", () => window.setTimeout(render, 0)));
+    window.addEventListener("site-language-changed", render);
     load();
 })();

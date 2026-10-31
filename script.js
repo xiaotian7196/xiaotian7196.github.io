@@ -46,7 +46,19 @@ const translations = {
         sakanaNotice: "本站使用的",
         sakanaAuthor: "，由 DSRKafuU 开发并以 MIT License 发布。",
         restoreWidget: "恢复组件",
-        minimizeWidget: "最小化组件"
+        minimizeWidget: "最小化组件",
+        liverySkip: "跳到涂装列表",
+        liveryHome: "主页",
+        liveryPageLink: "涂装站",
+        liveryRepo: "API 仓库 ↗",
+        liveryListTitle: "涂装列表",
+        liveryAll: "全部",
+        liverySearchPlaceholder: "搜索涂装、机型…",
+        liverySearchButton: "搜索",
+        liveryLoading: "正在载入涂装…",
+        liveryReset: "清除筛选",
+        liveryFooter: "涂装资料由 LiveryAPI 提供，页面会随着仓库内容更新。",
+        liverySource: "数据接口"
     },
     en: {
         documentTitle: "欢迎来到我的主页! | xiaotian7196",
@@ -95,7 +107,19 @@ const translations = {
         sakanaNotice: "This site uses",
         sakanaAuthor: ", developed by DSRKafuU and released under the MIT License.",
         restoreWidget: "Restore widget",
-        minimizeWidget: "Minimize widget"
+        minimizeWidget: "Minimize widget",
+        liverySkip: "Skip to the livery list",
+        liveryHome: "Home",
+        liveryPageLink: "Liveries",
+        liveryRepo: "API repository ↗",
+        liveryListTitle: "Livery list",
+        liveryAll: "All",
+        liverySearchPlaceholder: "Search liveries, aircraft…",
+        liverySearchButton: "Search",
+        liveryLoading: "Loading liveries…",
+        liveryReset: "Clear filters",
+        liveryFooter: "Livery data is provided by LiveryAPI and updates with the repository.",
+        liverySource: "Data API"
     },
     ja: {
         documentTitle: "欢迎来到我的主页! | xiaotian7196",
@@ -144,7 +168,19 @@ const translations = {
         sakanaNotice: "このサイトでは",
         sakanaAuthor: "を使用しています。DSRKafuUにより開発され、MIT Licenseで公開されています。",
         restoreWidget: "ウィジェットを戻す",
-        minimizeWidget: "ウィジェットを最小化"
+        minimizeWidget: "ウィジェットを最小化",
+        liverySkip: "塗装一覧へ移動",
+        liveryHome: "ホーム",
+        liveryPageLink: "塗装ステーション",
+        liveryRepo: "APIリポジトリ ↗",
+        liveryListTitle: "塗装一覧",
+        liveryAll: "すべて",
+        liverySearchPlaceholder: "塗装、機体を検索…",
+        liverySearchButton: "検索",
+        liveryLoading: "塗装を読み込み中…",
+        liveryReset: "絞り込みを解除",
+        liveryFooter: "塗装データはLiveryAPIから提供され、リポジトリの更新に合わせて変わります。",
+        liverySource: "データAPI"
     }
 };
 
@@ -238,12 +274,20 @@ function applyLanguage(language, persist = false) {
         }
     });
 
+    document.querySelectorAll("[data-i18n-placeholder]").forEach((element) => {
+        const key = element.dataset.i18nPlaceholder;
+        if (dictionary[key]) {
+            element.setAttribute("placeholder", dictionary[key]);
+        }
+    });
+
     languageButtons.forEach((button) => {
         button.setAttribute("aria-pressed", String(button.dataset.lang === safeLanguage));
     });
 
     updateThemeLabel();
     updateClock();
+    window.dispatchEvent(new CustomEvent("site-language-changed", {detail: {language: safeLanguage}}));
     if (persist) {
         storeCookie("xiaotian-language", safeLanguage);
     }
