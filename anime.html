@@ -7,10 +7,9 @@
     <meta content="#050505" name="theme-color">
     <title>看番记录单 | xiaotian7196</title>
     <link href="assets/images/favicon.png" rel="icon" type="image/png">
-    <link href="assets/vendor/sakana/sakana.min.css" rel="stylesheet">
     <link href="styles.css" rel="stylesheet">
     <link href="anime.css" rel="stylesheet">
-    <script defer src="assets/vendor/sakana/sakana.min.js"></script>
+    <script defer src="assets/vendor/sakana-redock/sakana-redock.umd.min.js"></script>
     <script defer src="script.js"></script>
     <script defer src="anime.js"></script>
 </head>
@@ -103,29 +102,9 @@
         <span>© <span id="current-year">2026</span> xiaotian7196</span>
         <br>
     </p>
+    <p class="sakana-notice"><span data-i18n="sakanaNotice">本站使用 </span><a href="https://github.com/lpxlpx7/sakana-widget-redock" rel="noopener noreferrer" target="_blank">Sakana! Widget ReDock</a><span data-i18n="sakanaBasedOn">（基于 </span><a href="https://github.com/dsrkafuu/sakana-widget" rel="noopener noreferrer" target="_blank">Sakana! Widget</a><span data-i18n="sakanaLicense"> 二次开发），以 </span><a href="https://github.com/lpxlpx7/sakana-widget-redock/blob/main/LICENSE" rel="noopener noreferrer" target="_blank">MIT License</a><span data-i18n="sakanaArt"> 发布。角色图片 © 大伏アオ，请勿商用。</span></p>
 </footer>
 
-<div aria-label="Sakana Widget" class="sakana-dock">
-    <button aria-label="恢复组件" class="sakana-restore" data-i18n-label="restoreWidget" hidden title="恢复组件"
-            type="button">
-        <svg aria-hidden="true" viewBox="0 0 24 24">
-            <path d="M8 3H3v5M16 3h5v5M21 16v5h-5M3 16v5h5M3 8l6-6M21 8l-6-6M21 16l-6 6M3 16l6 6"></path>
-        </svg>
-    </button>
-    <button aria-label="移动组件" class="sakana-move" type="button">
-        <svg aria-hidden="true" viewBox="0 0 24 24">
-            <path d="M12 2v20M2 12h20M12 2l-3 3M12 2l3 3M12 22l-3-3M12 22l3-3M2 12l3-3M2 12l3 3M22 12l-3-3M22 12l-3 3"></path>
-        </svg>
-        <span data-i18n="moveWidget">移动</span>
-    </button>
-    <button aria-label="最小化组件" class="sakana-minimize" data-i18n-label="minimizeWidget" title="最小化组件"
-            type="button">
-        <svg aria-hidden="true" viewBox="0 0 24 24">
-            <path d="M5 12h14"></path>
-        </svg>
-    </button>
-    <div id="sakana-widget"></div>
-</div>
 
 <script id="anime-data-fallback" type="application/json">{
     "meta": {

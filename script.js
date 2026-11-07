@@ -43,8 +43,11 @@ const translations = {
         footerText: "无论如何，请不要后悔与我相遇",
         friends: "友情链接",
         moveWidget: "移动",
-        sakanaNotice: "本站使用的",
-        sakanaAuthor: "，由 DSRKafuU 开发并以 MIT License 发布。",
+        sakanaNotice: "本站使用 ",
+        sakanaBasedOn: "（基于 ",
+        sakanaLicense: " 二次开发），以 ",
+        sakanaArt: " 发布。角色图片 © 大伏アオ，请勿商用。",
+        switchCharacter: "切换角色",
         restoreWidget: "恢复组件",
         minimizeWidget: "最小化组件",
         liverySkip: "跳到涂装列表",
@@ -104,8 +107,11 @@ const translations = {
         footerText: "どうか、私と出会ったことを後悔しないでください。",
         friends: "Links",
         moveWidget: "Move",
-        sakanaNotice: "This site uses",
-        sakanaAuthor: ", developed by DSRKafuU and released under the MIT License.",
+        sakanaNotice: "This site uses ",
+        sakanaBasedOn: " (based on ",
+        sakanaLicense: "), released under the ",
+        sakanaArt: ". Character art © 大伏アオ, not for commercial use.",
+        switchCharacter: "Switch character",
         restoreWidget: "Restore widget",
         minimizeWidget: "Minimize widget",
         liverySkip: "Skip to the livery list",
@@ -165,8 +171,11 @@ const translations = {
         footerText: "どうか、私と出会ったことを後悔しないでください。",
         friends: "リンク",
         moveWidget: "移動",
-        sakanaNotice: "このサイトでは",
-        sakanaAuthor: "を使用しています。DSRKafuUにより開発され、MIT Licenseで公開されています。",
+        sakanaNotice: "このサイトでは ",
+        sakanaBasedOn: "（",
+        sakanaLicense: " をベースに改変）を使用しています。ライセンス：",
+        sakanaArt: "。キャラクター画像 © 大伏アオ（商用利用不可）。",
+        switchCharacter: "キャラクターを切り替え",
         restoreWidget: "ウィジェットを戻す",
         minimizeWidget: "ウィジェットを最小化",
         liverySkip: "塗装一覧へ移動",
@@ -417,127 +426,52 @@ function initializeScrollAnimations() {
 /* 供看番记录页（anime.js）复用 */
 window.initializeScrollAnimations = initializeScrollAnimations;
 
-function initializeSakanaWidget() {
-    if (!window.SakanaWidget) {
-        return;
-    }
+let sakanaDock = null;
 
-    const dock = document.querySelector(".sakana-dock");
-    const mountPoint = document.getElementById("sakana-widget");
-    const restoreButton = document.querySelector(".sakana-restore");
-    const minimizeButton = document.querySelector(".sakana-minimize");
-    let widget = null;
-
-    function closeWidget() {
-        if (!widget || dock.classList.contains("is-closed")) {
-            return;
-        }
-
-        dock.classList.add("is-closed");
-        restoreButton.hidden = false;
-    }
-
-    function restoreWidget() {
-        dock.classList.remove("is-closed");
-        restoreButton.hidden = true;
-        window.requestAnimationFrame(() => {
-            window.dispatchEvent(new Event("resize"));
-        });
-    }
-
-    minimizeButton.addEventListener("click", closeWidget);
-    restoreButton.addEventListener("click", restoreWidget);
-
-    widget = new window.SakanaWidget({
-        autoFit: true,
-        character: "takina",
-        controls: true,
-        rod: true,
-        draggable: true,
-        stroke: {
-            color: "#a8a8a8",
-            width: 8
-        }
-    }).mount(mountPoint);
+function getSakanaLabels(dictionary) {
+    return {
+        move: dictionary.moveWidget,
+        minimize: dictionary.minimizeWidget,
+        restore: dictionary.restoreWidget,
+        switch: dictionary.switchCharacter
+    };
 }
 
-function initializeSakanaDockDrag() {
-    const dock = document.querySelector(".sakana-dock");
-    const handle = document.querySelector(".sakana-move");
-    if (!dock || !handle) {
+function updateSakanaLabels(dictionary) {
+    const labels = getSakanaLabels(dictionary);
+    const buttons = {
+        move: ".sakana-redock-move",
+        minimize: ".sakana-redock-minimize",
+        restore: ".sakana-redock-restore",
+        switch: ".sakana-redock-switch"
+    };
+
+    Object.entries(buttons).forEach(([key, selector]) => {
+        document.querySelectorAll(selector).forEach((button) => {
+            button.setAttribute("aria-label", labels[key]);
+            button.title = labels[key];
+        });
+    });
+
+    document.querySelectorAll(".sakana-redock-move-text").forEach((element) => {
+        element.textContent = labels.move;
+    });
+}
+
+function initializeSakanaWidget() {
+    if (!window.SakanaReDock || sakanaDock) {
         return;
     }
 
-    const edgeGap = 6;
-    let dragOffsetX = 0;
-    let dragOffsetY = 0;
+    const language = root.dataset.language || "zh";
+    sakanaDock = new window.SakanaReDock({
+        character: "takina",
+        storageKey: "xiaotian-sakana-redock",
+        labels: getSakanaLabels(translations[language] || translations.zh)
+    }).mount();
 
-    function clampPosition(left, top) {
-        return {
-            left: Math.min(Math.max(edgeGap, left), window.innerWidth - dock.offsetWidth - edgeGap),
-            top: Math.min(Math.max(edgeGap + 24, top), window.innerHeight - dock.offsetHeight - edgeGap)
-        };
-    }
-
-    function setPosition(left, top, persist = false) {
-        const position = clampPosition(left, top);
-        dock.style.left = `${position.left}px`;
-        dock.style.top = `${position.top}px`;
-        dock.style.right = "auto";
-        dock.style.bottom = "auto";
-
-        if (persist) {
-            storeValue("xiaotian-sakana-position", JSON.stringify({
-                x: position.left / Math.max(1, window.innerWidth - dock.offsetWidth),
-                y: position.top / Math.max(1, window.innerHeight - dock.offsetHeight)
-            }));
-        }
-    }
-
-    const storedPosition = getStoredValue("xiaotian-sakana-position");
-    if (storedPosition) {
-        try {
-            const position = JSON.parse(storedPosition);
-            setPosition(
-                position.x * Math.max(1, window.innerWidth - dock.offsetWidth),
-                position.y * Math.max(1, window.innerHeight - dock.offsetHeight)
-            );
-        } catch {
-            // Ignore invalid position data and keep the default placement.
-        }
-    }
-
-    handle.addEventListener("pointerdown", (event) => {
-        const rect = dock.getBoundingClientRect();
-        dragOffsetX = event.clientX - rect.left;
-        dragOffsetY = event.clientY - rect.top;
-        dock.classList.add("is-moving");
-        handle.setPointerCapture(event.pointerId);
-        event.preventDefault();
-    });
-
-    handle.addEventListener("pointermove", (event) => {
-        if (!handle.hasPointerCapture(event.pointerId)) {
-            return;
-        }
-        setPosition(event.clientX - dragOffsetX, event.clientY - dragOffsetY);
-    });
-
-    function finishDrag(event) {
-        if (!handle.hasPointerCapture(event.pointerId)) {
-            return;
-        }
-        handle.releasePointerCapture(event.pointerId);
-        dock.classList.remove("is-moving");
-        const rect = dock.getBoundingClientRect();
-        setPosition(rect.left, rect.top, true);
-    }
-
-    handle.addEventListener("pointerup", finishDrag);
-    handle.addEventListener("pointercancel", finishDrag);
-    window.addEventListener("resize", () => {
-        const rect = dock.getBoundingClientRect();
-        setPosition(rect.left, rect.top, true);
+    window.addEventListener("site-language-changed", (event) => {
+        updateSakanaLabels(translations[event.detail.language] || translations.zh);
     });
 }
 
@@ -597,7 +531,6 @@ applyLanguage(preferredLanguage);
 updateClock();
 initializeScrollAnimations();
 initializeSakanaWidget();
-initializeSakanaDockDrag();
 initializeFloatingControlsContext();
 setInterval(updateClock, 1000);
 
